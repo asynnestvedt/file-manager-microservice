@@ -1,0 +1,279 @@
+{
+    "data": [{
+            "id": "aFileHash-or-s3-identifyer0000",
+            "name": "Intro to rehab - part 1",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "32.1 MB",
+                "ext": "mp4",
+                "res": {
+                    "w": "900",
+                    "h": "480"
+                },
+                "original_name": "DCIM - Jan 01,2001.mp4",
+                "created": "2012-01-01 00:06:33",
+                "creator": "asynnestvedt"
+            },
+            /* users indexes who can access and permissions determines how they can access r=can-read, w=can-delete, x=can-use-in-creators */
+            "users": ["asynnestvedt", " public", " someGroupId"],
+            "access": {
+                "asynnestvedt": "rwx",
+                "public": "r--",
+                "someGroupId": "r-x"
+            },
+            "status": "active"
+        },
+
+        {
+            "id": "aFileHash-or-s3-identifyer0001",
+            "name": "Intro to rehab - part 2",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "26.5 MB",
+                "ext": "mp4",
+                "original_name": "DCIM - Jan 03,2001.mp4",
+                "created": "2012-01-01 00:06:37",
+                "creator": "asynnestvedt"
+            },
+            "users": ["asynnestvedt", "public", "system", "someOtherId"],
+            "perms": {
+                "asynnestvedt": "rwx",
+                "public": "r--",
+                "system": "rw-",
+                "someOtherId": "rw-"
+            },
+            "status": "uploaded" /* uploaded, not yet moderated? */
+        },
+
+        {
+            "id": "aFileHash-or-s3-identifyer00002",
+            "name": "Intro to rehab - part 2",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "26.5 MB",
+                "ext": "mp4",
+                "original_name": "DCIM - Jan 03,2001.mp4",
+                "created": "2012-01-01 00:06:37",
+                "creator": "mdobbins"
+            },
+            "users": ["mdobbins", " public", " system", " someOtherId"],
+            "perms": {
+                "mdobbins": "rwx",
+                "public": "r--",
+                "system": "rw-",
+                "someOtherId": "rw-"
+            },
+            "status": "deleted"
+        },
+        {
+            "id": "aFileHash-or-s3-identifyer0000",
+            "name": "Intro to rehab - part 1",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "32.1 MB",
+                "ext": "mp4",
+                "res": {
+                    "w": "900",
+                    "h": "480"
+                },
+                "original_name": "DCIM - Jan 01,2001.mp4",
+                "created": "2012-01-01 00:06:33",
+                "creator": "asynnestvedt"
+            },
+            /* users indexes who can access and permissions determines how they can access r=can-read, w=can-delete, x=can-use-in-creators */
+            "users": ["asynnestvedt", " public", " someGroupId"],
+            "access": {
+                "asynnestvedt": "rwx",
+                "public": "r--",
+                "someGroupId": "r-x"
+            },
+            "status": "active"
+        },
+
+        {
+            "id": "aFileHash-or-s3-identifyer0001",
+            "name": "Intro to rehab - part 2",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "26.5 MB",
+                "ext": "mp4",
+                "original_name": "DCIM - Jan 03,2001.mp4",
+                "created": "2012-01-01 00:06:37",
+                "creator": "asynnestvedt"
+            },
+            "users": ["asynnestvedt", " public", " system", " someOtherId"],
+            "perms": {
+                "asynnestvedt": "rwx",
+                "public": "r--",
+                "system": "rw-",
+                "someOtherId": "rw-"
+            },
+            "status": "uploaded" /* uploaded, not yet moderated? */
+        },
+
+        {
+            "id": "aFileHash-or-s3-identifyer00002",
+            "name": "Intro to rehab - part 2",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "26.5 MB",
+                "ext": "mp4",
+                "original_name": "DCIM - Jan 03,2001.mp4",
+                "created": "2012-01-01 00:06:37",
+                "creator": "mdobbins"
+            },
+            "users": ["mdobbins", " public", " system", " someOtherId"],
+            "perms": {
+                "mdobbins": "rwx",
+                "public": "r--",
+                "system": "rw-",
+                "someOtherId": "rw-"
+            },
+            "status": "deleted"
+        },
+        {
+            "id": "aFileHash-or-s3-identifyer0000",
+            "name": "Intro to rehab - part 1",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "32.1 MB",
+                "ext": "mp4",
+                "res": {
+                    "w": "900",
+                    "h": "480"
+                },
+                "original_name": "DCIM - Jan 01,2001.mp4",
+                "created": "2012-01-01 00:06:33",
+                "creator": "asynnestvedt"
+            },
+            /* users indexes who can access and permissions determines how they can access r=can-read, w=can-delete, x=can-use-in-creators */
+            "users": ["asynnestvedt", " public", " someGroupId"],
+            "access": {
+                "asynnestvedt": "rwx",
+                "public": "r--",
+                "someGroupId": "r-x"
+            },
+            "status": "active"
+        },
+
+        {
+            "id": "aFileHash-or-s3-identifyer0001",
+            "name": "Intro to rehab - part 2",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "26.5 MB",
+                "ext": "mp4",
+                "original_name": "DCIM - Jan 03,2001.mp4",
+                "created": "2012-01-01 00:06:37",
+                "creator": "asynnestvedt"
+            },
+            "users": ["asynnestvedt", " public", " system", " someOtherId"],
+            "perms": {
+                "asynnestvedt": "rwx",
+                "public": "r--",
+                "system": "rw-",
+                "someOtherId": "rw-"
+            },
+            "status": "uploaded" /* uploaded, not yet moderated? */
+        },
+
+        {
+            "id": "aFileHash-or-s3-identifyer00002",
+            "name": "Intro to rehab - part 2",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "26.5 MB",
+                "ext": "mp4",
+                "original_name": "DCIM - Jan 03,2001.mp4",
+                "created": "2012-01-01 00:06:37",
+                "creator": "mdobbins"
+            },
+            "users": ["mdobbins", " public", " system", " someOtherId"],
+            "perms": {
+                "mdobbins": "rwx",
+                "public": "r--",
+                "system": "rw-",
+                "someOtherId": "rw-"
+            },
+            "status": "deleted"
+        },
+        {
+            "id": "aFileHash-or-s3-identifyer0000",
+            "name": "Intro to rehab - part 1",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "32.1 MB",
+                "ext": "mp4",
+                "res": {
+                    "w": "900",
+                    "h": "480"
+                },
+                "original_name": "DCIM - Jan 01,2001.mp4",
+                "created": "2012-01-01 00:06:33",
+                "creator": "asynnestvedt"
+            },
+            /* users indexes who can access and permissions determines how they can access r=can-read, w=can-delete, x=can-use-in-creators */
+            "users": ["asynnestvedt", " public", " someGroupId"],
+            "access": {
+                "asynnestvedt": "rwx",
+                "public": "r--",
+                "someGroupId": "r-x"
+            },
+            "status": "active"
+        },
+
+        {
+            "id": "aFileHash-or-s3-identifyer0001",
+            "name": "Intro to rehab - part 2",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "26.5 MB",
+                "ext": "mp4",
+                "original_name": "DCIM - Jan 03,2001.mp4",
+                "created": "2012-01-01 00:06:37",
+                "creator": "asynnestvedt"
+            },
+            "users": ["asynnestvedt", " public", " system", " someOtherId"],
+            "perms": {
+                "asynnestvedt": "rwx",
+                "public": "r--",
+                "system": "rw-",
+                "someOtherId": "rw-"
+            },
+            "status": "uploaded" /* uploaded, not yet moderated? */
+        },
+
+        {
+            "id": "aFileHash-or-s3-identifyer00002",
+            "name": "Intro to rehab - part 2",
+            "detail": "",
+            "type": "video",
+            "meta": {
+                "size": "26.5 MB",
+                "ext": "mp4",
+                "original_name": "DCIM - Jan 03,2001.mp4",
+                "created": "2012-01-01 00:06:37",
+                "creator": "mdobbins"
+            },
+            "users": ["mdobbins", " public", " system", " someOtherId"],
+            "perms": {
+                "mdobbins": "rwx",
+                "public": "r--",
+                "system": "rw-",
+                "someOtherId": "rw-"
+            },
+            "status": "deleted"
+        }
+    ]
+}
