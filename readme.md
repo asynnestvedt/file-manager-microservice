@@ -6,6 +6,7 @@
 3. allows for filetype specific uploads and/or selection
 4. Uses jQuery DataTables for displaying file list
 5. UI is designed to be a modal with configurable callbacks for easy integration into any app. Currently using bootstrap3 for the UI but will ultimately ditch BS3 and only use jQuery and plugins as dependencies.
+6. file duplicates are ignored but new metadata is still created. This means multiple users can "own" and manage a single.  Files are never deleted from AWS S3 but instead their metadata status is set to "deleted". The aws filename is a SHA hash of the file contents. this ensures all file instances are unique.
 
 ### Configuration ###
 edit `config/config.js` to set custom port, indexes, filenames and running intervals.
