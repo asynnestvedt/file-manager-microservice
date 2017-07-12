@@ -1,10 +1,10 @@
-### Job Scheduler Microservice ###
+### AWS S3 File Manager Microservice ###
 
-## Features ##
-1. logging (for when an audit trail is necessary)
-2. configurable indexing on job metadata
-3. an HTTP RESTlike interface
-4. embedded database compliant to mongo API
+## Design Notes ##
+1. microservice uses nedb or mongo for storing file metadata and access permissions.
+2. microservice acts as a proxy to AWS s3
+3. allows for filetype specific uploads and/or selection
+4. Uses jQuery DataTables for displaying file list
 
 ### Configuration ###
 edit `config/config.js` to set custom port, indexes, filenames and running intervals.
