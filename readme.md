@@ -5,6 +5,7 @@
 2. microservice acts as a proxy to AWS s3
 3. allows for filetype specific uploads and/or selection
 4. Uses jQuery DataTables for displaying file list
+5. UI is designed to be a modal with configurable callbacks for easy integration into any app. Currently using bootstrap3 for the UI but will ultimately ditch BS3 and only use jQuery and plugins as dependencies.
 
 ### Configuration ###
 edit `config/config.js` to set custom port, indexes, filenames and running intervals.
