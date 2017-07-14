@@ -1,10 +1,10 @@
 module.exports = {
     app: {
-        secret: "" // used for JWT
+        secret: "ITS_MY_SECRET" // used for JWT
     },
 
     server: {
-        default:  {
+        default: {
             port: 3333
         }
     },
@@ -13,7 +13,8 @@ module.exports = {
         use: 's3',
         s3: {
             key_id: '',
-            secret: ''
+            secret: '',
+            bucket: ''
         },
         local: {
             path: '/../uploads/'
@@ -21,7 +22,7 @@ module.exports = {
     },
 
     db: {
-        use: 'nedb', // switch dbs for local vs prod
+        use: 'mongo', // switch dbs for local vs prod
 
         nedb: {
             filename_prefix: __dirname + "/../data/", // set path and unique prefixes to prevent filename collisions
@@ -30,10 +31,10 @@ module.exports = {
         },
 
         mongo: {
-            url:'',
-            user:'',
-            password:'',
-            collection:''
+            url: 'mongodb://localhost:27017/filemanager',
+            user: '',
+            password: '',
+            collection: ''
         },
 
         indexes: {
@@ -43,6 +44,6 @@ module.exports = {
                 { fieldName: 'metadata.hash', unique: true },
                 { fieldName: 'metadata.userId', unique: false, sparse: true }
             ]
-        } 
+        }
     }
 }

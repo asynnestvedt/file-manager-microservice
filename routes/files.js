@@ -1,53 +1,85 @@
 let file = require('../lib/file.model.js');
 const formidable = require('express-formidable');
 
+
+const AWS = require('aws-sdk');
+const config = require('../config/config');
+const s3 = new AWS.S3({
+    accessKeyId: config.storage.s3.key_id,
+    secretAccessKey: config.storage.s3.secret,
+    apiVersion: '2006-03-01'
+});
+const bucket = config.storage.s3.bucket;
+const multer = require('multer')
+const multerS3 = require('multer-s3')
+const File = require('../model/file');
+
 module.exports = function(app, db) {
 
-    app.use(formidable());
+    // app.use(formidable());
 
-    app.post('/files', function (req, res) {
-        res.type('json');
-        let file = new file(req.body.payload, req.body.metadata, req.body.when, req.body.archive || null);
+    var upload = multer({
+        storage: multerS3({
+            s3: s3,
+            bucket: bucket,
+            metadata: function(req, file, cb) {
+                cb(null, { fieldName: file.fieldname });
+            },
+            key: function(req, file, cb) {
+                cb(null, Date.now().toString())
+            }
+        })
+    })
 
-        
+
+    app.post('/files', upload.array('file', 3), function(req, res) {
+
+        file = new File({ name: req.files.name, metadata: req.files.metadata });
+        file.save((err) => {
+            if (err) throw (err);
+            res.send('Successfully uploaded ' + req.files.length + ' files!')
+        })
+
+        // fs.readFile(req.files.displayImage.path, function (err, data) {
+        // // ...
+        // var newPath = __dirname + "/uploads/uploadedFileName";
+        //     fs.writeFile(newPath, data, function (err) {
+        //         res.redirect("back");
+        //     });
+        // });
+
+        // if(file.isValid()) {
+        //     db.files_write(file.unified(), function(err, filedoc) {
+        //         if (!err) {
+        //             res.status(201).send(JSON.stringify( {_id: filedoc._id} ));
+        //         } else {
+        //             res.type('text/plain');
+        //             res.status(400).send("duplicate entry");
+        //         }
+        //     });
+        // } else {
+        //     res.type('text/plain');
+        //     res.status(400).send("files require 'payload' and 'when' attributes");
+        // }
 
 
-        fs.readFile(req.files.displayImage.path, function (err, data) {
-        // ...
-        var newPath = __dirname + "/uploads/uploadedFileName";
-            fs.writeFile(newPath, data, function (err) {
-                res.redirect("back");
-            });
-        });
 
-        if(file.isValid()) {
-            db.files_write(file.unified(), function(err, filedoc) {
-                if (!err) {
-                    res.status(201).send(JSON.stringify( {_id: filedoc._id} ));
-                } else {
-                    res.type('text/plain');
-                    res.status(400).send("duplicate entry");
-                }
-            });
-        } else {
-            res.type('text/plain');
-            res.status(400).send("files require 'payload' and 'when' attributes");
-        }
+
     });
 
-    app.get('/files/:filter?', function (req, res, next) {
+    app.get('/files/:filter?', function(req, res, next) {
         res.type('json');
         let filter = {};
-        
+
         try {
             filter = JSON.parse(req.params.filter || "{}");
-        } catch (e){
-            res.status(400).send(e); 
+        } catch (e) {
+            res.status(400).send(e);
             return next(new Error(e.message));
         }
-        
+
         db.files_read(filter, null, null, function(err, filedocs) {
-            if(!err) {
+            if (!err) {
                 res.status(200).send(JSON.stringify(filedocs));
             } else {
                 res.status(400).send("no records found");
@@ -55,7 +87,7 @@ module.exports = function(app, db) {
         });
     });
 
-    app.delete('/files/:_ids', function (req, res, next) {
+    app.delete('/files/:_ids', function(req, res, next) {
         let ids = [];
         try {
             ids = JSON.parse(req.params._ids) || [];
@@ -63,17 +95,17 @@ module.exports = function(app, db) {
             res.status(400).send(e);
             return next(new Error[e.message]);
         }
-        
-        for(let i=0; i < ids.length; ++i) {
-            let filter = {_id: ids[i]};
-            db.files_read(filter, null, null, function(err, jsonDoc){
-                if(!err) {
+
+        for (let i = 0; i < ids.length; ++i) {
+            let filter = { _id: ids[i] };
+            db.files_read(filter, null, null, function(err, jsonDoc) {
+                if (!err) {
                     jsonDoc.status = "cancelled";
                     db.log_write(jsonDoc);
                 }
             });
             db.files_remove(filter, function(err, filedocs) {
-                if(!err) {
+                if (!err) {
                     res.status(200).send(JSON.stringify("success"));
                 } else {
                     res.status(400).send("no records found");
@@ -81,5 +113,13 @@ module.exports = function(app, db) {
             });
         }
     });
+    app.get('/file', (req, res) => {
+
+        File.find({}, (err, result) => {
+
+            console.log(res)
+            res.jsonp(result)
+        })
+    })
 
 }

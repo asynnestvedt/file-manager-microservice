@@ -15,7 +15,7 @@
                 "created": "2012-01-01 00:06:33",
                 "creator": "asynnestvedt"
             },
-            /* users indexes who can access and permissions determines how they can access r=can-read, w=can-delete, x=can-use-in-creators */
+            
             "users": ["asynnestvedt", " public", " someGroupId"],
             "access": {
                 "asynnestvedt": "rwx",
@@ -44,7 +44,7 @@
                 "system": "rw-",
                 "someOtherId": "rw-"
             },
-            "status": "uploaded" /* uploaded, not yet moderated? */
+            "status": "uploaded"
         },
 
         {
@@ -84,7 +84,7 @@
                 "created": "2012-01-01 00:06:33",
                 "creator": "asynnestvedt"
             },
-            /* users indexes who can access and permissions determines how they can access r=can-read, w=can-delete, x=can-use-in-creators */
+           
             "users": ["asynnestvedt", " public", " someGroupId"],
             "access": {
                 "asynnestvedt": "rwx",
@@ -113,7 +113,7 @@
                 "system": "rw-",
                 "someOtherId": "rw-"
             },
-            "status": "uploaded" /* uploaded, not yet moderated? */
+            "status": "uploaded"
         },
 
         {
@@ -153,7 +153,7 @@
                 "created": "2012-01-01 00:06:33",
                 "creator": "asynnestvedt"
             },
-            /* users indexes who can access and permissions determines how they can access r=can-read, w=can-delete, x=can-use-in-creators */
+           
             "users": ["asynnestvedt", " public", " someGroupId"],
             "access": {
                 "asynnestvedt": "rwx",
@@ -182,7 +182,7 @@
                 "system": "rw-",
                 "someOtherId": "rw-"
             },
-            "status": "uploaded" /* uploaded, not yet moderated? */
+            "status": "uploaded" 
         },
 
         {
@@ -222,7 +222,7 @@
                 "created": "2012-01-01 00:06:33",
                 "creator": "asynnestvedt"
             },
-            /* users indexes who can access and permissions determines how they can access r=can-read, w=can-delete, x=can-use-in-creators */
+         
             "users": ["asynnestvedt", " public", " someGroupId"],
             "access": {
                 "asynnestvedt": "rwx",
@@ -251,7 +251,7 @@
                 "system": "rw-",
                 "someOtherId": "rw-"
             },
-            "status": "uploaded" /* uploaded, not yet moderated? */
+            "status": "uploaded" 
         },
 
         {

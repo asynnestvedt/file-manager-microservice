@@ -1,21 +1,23 @@
 let config = require('./config/config.js'),
-    db = new (require('./lib/db-mgr.js')),
+    db = new(require('./lib/db-mgr.js')),
     express = require('express'),
-    bodyparser = require('body-parser');
+    bodyparser = require('body-parser'),
+    path = require('path');
 
 let app = express();
 
 // app.use(bodyparser.json());
 // app.use(bodyparser);
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public/')));
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }));
 
 /**
  * display API info at root URL
  */
-app.get('/', function (req, res) {
-    res.type('html');
-    res.send(require('./lib/express-list-routes')(app._router.stack));
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, './public', 'bootstrap.html'));
 })
 
 /**
@@ -28,6 +30,6 @@ require('./routes')(app, db);
  * port config can be overridden using environment var
  */
 let port = process.env.PORT || config.server.default.port;
-app.listen(port, function () {
-    console.log('Express app listening on port '+port)
+app.listen(port, function() {
+    console.log('Express app listening on port ' + port)
 })
