@@ -12,8 +12,8 @@ module.exports = {
     storage: {
         use: 's3',
         s3: {
-            key_id: 'AKIAJI4UW5AL5DK2PXTQ',
-            secret: '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',
+            key_id: '',
+            secret: '',
             bucket: 'file-microservice-test'
         },
         local: {
