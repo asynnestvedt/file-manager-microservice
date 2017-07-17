@@ -12,7 +12,7 @@ const Schema = new mongoose.Schema({
         },
         original_name: String,
         created: { type: Date, default: Date.now },
-        creator: String
+        creator: { type: String, default: 'Alan' }
     },
     users: [String],
     access: [String],

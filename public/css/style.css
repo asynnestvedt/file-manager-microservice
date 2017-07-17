@@ -1,0 +1,233 @@
+ .btn-file {
+     position: relative;
+     overflow: hidden;
+ }
+ 
+ .btn-file input[type=file] {
+     position: absolute;
+     top: 0;
+     right: 0;
+     min-width: 100%;
+     min-height: 100%;
+     font-size: 100px;
+     text-align: right;
+     filter: alpha(opacity=0);
+     opacity: 0;
+     outline: none;
+     background: white;
+     cursor: inherit;
+     display: block;
+ }
+ 
+ .universal-custom {
+     padding: 0;
+     background: #fff;
+ }
+ 
+ .universal-custom .panel-default>.panel-heading {
+     color: #000;
+     background-color: #fff!important;
+     padding: 25px 0!important;
+     border-radius: 0!important;
+ }
+ 
+ .universal-custom .panel-title {
+     text-decoration: none!important;
+ }
+ 
+ .universal-custom .panel-title span {
+     padding-right: 10px;
+ }
+ 
+ .universal-custom .panel-default>.panel-heading+.panel-collapse>.panel-body {
+     border-top-color: #ddd;
+     border: none;
+ }
+ 
+ .universal-custom .panel-group .panel {
+     border-radius: 0;
+ }
+ 
+ .universal-custom .panel-default>.panel-heading {
+     text-align: center;
+ }
+ 
+ .universal-custom table.dataTable.row-border tbody tr:first-child th,
+ .universal-custom table.dataTable.row-border tbody tr:first-child td,
+ table.dataTable.display tbody tr:first-child th,
+ .universal-custom table.dataTable.display tbody tr:first-child td {
+     border-top: 1px dashed #ccc;
+ }
+ 
+ .universal-custom table.dataTable.compact tbody th,
+ .universal-custom table.dataTable.compact tbody td {
+     padding: 12px 4px;
+ }
+ 
+ .universal-custom table.dataTable.compact tbody td {
+     border-top: 1px dashed #ccc;
+ }
+ 
+ .universal-custom table.dataTable.no-footer {
+     border-bottom: 1px dashed #ccc;
+ }
+ 
+ .universal-custom table.dataTable.display tbody tr.odd>.sorting_1,
+ .universal-custom table.dataTable.order-column.stripe tbody tr.odd>.sorting_1 {
+     background-color: #fff!important;
+ }
+ 
+ .universal-custom table.dataTable.display tbody tr.even>.sorting_1,
+ .universal-custom table.dataTable.order-column.stripe tbody tr.even>.sorting_1 {
+     background-color: #fff!important;
+ }
+ 
+ .universal-custom table.dataTable.stripe tbody tr.odd,
+ table.dataTable.display tbody tr.odd {
+     background-color: #fff;
+ }
+ 
+ .universal-custom table.dataTable.stripe tbody tr.odd,
+ table.dataTable.display tbody tr.even {
+     background-color: #fff;
+ }
+ 
+ .universal-custom table.dataTable thead th,
+ .universal-custom table.dataTable thead td {
+     border-bottom: none;
+     color: #028DFF;
+     font-weight: 500;
+ }
+ 
+ .universal-custom .btn-default {
+     color: #000;
+     background-color: #d4d2d2;
+     border-color: #d4d2d2;
+     border-radius: 0!important;
+     padding: 7px 20px!important;
+     font-size: 15px;
+     margin-bottom: 30px;
+ }
+ 
+ .universal-custom .btn-default .glyphicon-cog {
+     padding-right: 10px;
+     color: #028DFF;
+ }
+ 
+ .universal-custom .btn .caret {
+     margin-left: 10px;
+ }
+ 
+ .universal-custom .dataTables_filter input {
+     color: #000;
+     background-color: #d4d2d2;
+     border-color: #d4d2d2;
+     border-radius: 0!important;
+     padding: 7px 20px!important;
+     border: 1px solid #d4d2d2;
+     font-size: 15px;
+     margin-bottom: 30px;
+ }
+ 
+ .universal-custom .dataTables_wrapper .dataTables_paginate {
+     float: left;
+ }
+ 
+ .universal-custom .dataTables_info {
+     width: 100%;
+ }
+ 
+ .universal-custom .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+     color: #000!important;
+     background: transparent;
+ }
+ 
+ .universal-custom .dataTables_wrapper .dataTables_paginate .paginate_button {
+     padding: 5px 20px;
+     margin-left: 0px;
+     color: #fff!important;
+     border: 1px solid transparent;
+     border-radius: 0;
+     background: #028DFF;
+ }
+ 
+ .universal-custom .paginate_button:hover {
+     background: #028DFF;
+     color: #fff!important;
+ }
+ 
+ .universal-custom .col-md-4.pull-right {
+     margin-top: -35px;
+     text-align: right;
+     z-index: 9999;
+ }
+ 
+ .universal-custom .btn-primary {
+     color: #fff;
+     background-color: #028DFF;
+     border-color: #028DFF;
+     padding: 7px 30px;
+ }
+ 
+ .universal-custom #file_select_btn_cancel {
+     padding: 7px 30px;
+     border-radius: 4px;
+     box-shadow: 1px 3px 10px #ccc;
+ }
+ 
+ .universal-custom #file-upload-container.panel-default>.panel-heading {
+     background-color: #E3E4E6!important;
+ }
+ 
+ .universal-custom #file-upload-container .form-group input {
+     background: #EDECEC;
+     /* border-radius: 0; */
+     padding: 13px 10px!important;
+     height: auto;
+     color: #000!important;
+     border: none;
+ }
+ 
+ .universal-custom #file-upload-container .form-group textarea {
+     box-shadow: 1px 3px 10px #ccc;
+     height: 150px;
+ }
+ 
+ .universal-custom #file-upload-container .helper {
+     color: #028DFF;
+     font-size: 15px;
+ }
+ 
+ .universal-custom #file-upload-container .btn-primary {
+     color: #fff;
+     background-color: #028DFF;
+     border-color: #028DFF;
+     padding: 7px 30px;
+ }
+ 
+ .universal-custom #file-upload-container #file_upload_btn_cancel {
+     padding: 7px 30px;
+     color: #7B7B7B;
+     border-radius: 4px;
+     box-shadow: 1px 3px 10px #ccc;
+ }
+ 
+ .upload_btss {
+     width: 100%;
+     float: left;
+     background: #EDECEC;
+     /* border-radius: 0; */
+     padding: 5px 10px!important;
+     height: auto;
+     color: #000!important;
+     border: none;
+     text-align: right;
+     border-radius: 4px;
+ }
+ 
+ .upload_btss .btn-default {
+     margin-bottom: 0;
+     color: #fff;
+     border-radius: 4px!important;
+     background-color: #028DFF;
+ }

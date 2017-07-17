@@ -32,13 +32,37 @@ module.exports = function(app, db) {
     })
 
 
-    app.post('/files', upload.array('file', 3), function(req, res) {
+    app.post('/files', upload.array('file', 15), function(req, res) {
 
-        file = new File({ name: req.files.name, metadata: req.files.metadata });
-        file.save((err) => {
-            if (err) throw (err);
-            res.send('Successfully uploaded ' + req.files.length + ' files!')
-        })
+
+        var fileobj = new Array();
+
+
+        req.files.forEach(function(element) {
+
+            file = new File({
+                name: req.body.name,
+                details: req.body.details,
+                meta: {
+                    size: element.size,
+                    ext: element.mimetype,
+                    original_name: element.originalname
+                },
+                status: true
+
+
+            });
+
+            file.save((err) => {
+                if (err) throw (err);
+                console.log(req.files);
+                res.send('Successfully uploaded ' + req.files.length + ' files!')
+            })
+
+        }, this);
+
+
+
 
         // fs.readFile(req.files.displayImage.path, function (err, data) {
         // // ...
@@ -117,8 +141,8 @@ module.exports = function(app, db) {
 
         File.find({}, (err, result) => {
 
-            console.log(res)
-            res.jsonp(result)
+            let data = { data: result };
+            res.jsonp(data)
         })
     })
 

@@ -1,23 +1,24 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
 
-  <title></title>
-  <meta name="description" content="">
+<head>
+    <meta charset="utf-8">
+
+    <title></title>
+    <meta name="description" content="">
 
     <!-- dependencies (jquery, handlebars and bootstrap) -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
-    <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-    <link type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 
 
 
-  <!--[if lt IE 9]>
+    <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
 
@@ -29,10 +30,12 @@
         #file_select_table_filter label {
             font-weight: normal;
         }*/
+        
         .btn-file {
             position: relative;
             overflow: hidden;
         }
+        
         .btn-file input[type=file] {
             position: absolute;
             top: 0;
@@ -48,7 +51,7 @@
             cursor: inherit;
             display: block;
         }
-  </style>
+    </style>
 </head>
 
 <body>
@@ -57,101 +60,101 @@
         <div class="row">
             <div class="col-md-6">
 
-                
-        <div class="panel-group" id="file-select-panels">
-            <div class="panel panel-default" id="file-select-container">
-                <div class="panel-heading">
-                    <a class="panel-title" data-toggle="collapse" data-parent="#file-select-panels" href="#file-select-panel"><span class="glyphicon glyphicon-file"></span> Select a file</a>
-                </div>
-                <div id="file-select-panel" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <table id="file_select_table" class="dataTable table table-striped compact display" cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Type</th>
-                                            <th>Size</th>
-                                            <th>Added By</th>
-                                            <th>Users</th>
-                                            <th>Extension</th>
-                                            <th>Details</th>
-                                            <th>Original Name</th>
-                                            <th>Options</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
+
+                <div class="panel-group" id="file-select-panels">
+                    <div class="panel panel-default" id="file-select-container">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#file-select-panels" href="#file-select-panel"><span class="glyphicon glyphicon-file"></span> Select a file</a>
                         </div>
-                        <div class="col-md-4 pull-right">
-                            <button id="file_select_btn_done" type="button" class="btn  btn-primary">Done</button> &nbsp;
-                            <button id="file_select_btn_cancel" type="button" class="btn btn-sm btn-link">Cancel</button>
+                        <div id="file-select-panel" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table id="file_select_table" class="dataTable table table-striped compact display" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Type</th>
+                                                    <th>Size</th>
+                                                    <th>Added By</th>
+                                                    <th>Users</th>
+                                                    <th>Extension</th>
+                                                    <th>Details</th>
+                                                    <th>Original Name</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pull-right">
+                                    <button id="file_select_btn_done" type="button" class="btn  btn-primary">Done</button> &nbsp;
+                                    <button id="file_select_btn_cancel" type="button" class="btn btn-sm btn-link">Cancel</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
 
-            <div class="panel panel-default" id="file-upload-container">
-                <div class="panel-heading"><a class="panel-title" data-toggle="collapse" data-parent="#file-select-panels" href="#file-upload-panel"><span class="glyphicon glyphicon-open"></span> Upload a File</a></div>
-                <div id="file-upload-panel" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <form role="form" class="form">
-                            <div class="row">
-                                <div class="form-group col-sm-6">
-                                    <span class="btn btn-default btn-file">
+                    <div class="panel panel-default" id="file-upload-container">
+                        <div class="panel-heading"><a class="panel-title" data-toggle="collapse" data-parent="#file-select-panels" href="#file-upload-panel"><span class="glyphicon glyphicon-open"></span> Upload a File</a></div>
+                        <div id="file-upload-panel" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <form role="form" class="form">
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <span class="btn btn-default btn-file">
                                         <span class="glyphicon glyphicon-folder-open"></span> &nbsp; Browse <input type="file" id="file_original_name" />
-                                    </span>
-                                </div>
+                                            </span>
+                                        </div>
 
-                                <div class="col-sm-6">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-success"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h5 class="helper">File Properties</h5>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="file_name" placeholder="Name" required />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="file_detail" placeholder="Description (optional)" />
-                                    </div>
-
-                                    <div class="form-group file-options-perms-users">
-                                        <div class="button-group">
-                                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Users <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><label class="small">&nbsp;<input data-value="0" type="checkbox" checked/>&nbsp;Indian River Medical Center</label></li>
-                                                <li><label class="small">&nbsp;<input data-value="1" type="checkbox" checked/>&nbsp;Public</label> <span class="glyphicon glyphicon-info-sign"></span></li>
-                                                <li><label class="small">&nbsp;<input data-value="2" type="checkbox" checked/>&nbsp;Your Patients</label></li>
-                                                <li><label class="small">&nbsp;<input data-value="3" type="checkbox" checked/>&nbsp;IRMC Patients</label></li>
-                                                <li><label class="small">&nbsp;<input data-value="4" type="checkbox"/>&nbsp;Users</label></li>
-                                            </ul>
+                                        <div class="col-sm-6">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-success"></div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div class="checkbox file-options-perms-practice">
-                                <label><input type="checkbox" name="file_perms_practice" id="file_perms_practice" />Allow members of your group or practice to use this file when creating their pathways?</label>
-                            </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h5 class="helper">File Properties</h5>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="file_name" placeholder="Name" required />
+                                            </div>
 
-                            <div class="col-sm-4 pull-right">
-                                <button id="file_upload_btn_done" type="button" class="btn btn-primary">Save</button> &nbsp;
-                                <button id="file_upload_btn_cancel" type="button" class="btn btn-link">Cancel</button>
-                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="file_detail" placeholder="Description (optional)" />
+                                            </div>
 
-                        </form>
+                                            <div class="form-group file-options-perms-users">
+                                                <div class="button-group">
+                                                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Users <span class="caret"></span></button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><label class="small">&nbsp;<input data-value="0" type="checkbox" checked/>&nbsp;Indian River Medical Center</label></li>
+                                                        <li><label class="small">&nbsp;<input data-value="1" type="checkbox" checked/>&nbsp;Public</label> <span class="glyphicon glyphicon-info-sign"></span></li>
+                                                        <li><label class="small">&nbsp;<input data-value="2" type="checkbox" checked/>&nbsp;Your Patients</label></li>
+                                                        <li><label class="small">&nbsp;<input data-value="3" type="checkbox" checked/>&nbsp;IRMC Patients</label></li>
+                                                        <li><label class="small">&nbsp;<input data-value="4" type="checkbox"/>&nbsp;Users</label></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="checkbox file-options-perms-practice">
+                                        <label><input type="checkbox" name="file_perms_practice" id="file_perms_practice" />Allow members of your group or practice to use this file when creating their pathways?</label>
+                                    </div>
+
+                                    <div class="col-sm-4 pull-right">
+                                        <button id="file_upload_btn_done" type="button" class="btn btn-primary">Save</button> &nbsp;
+                                        <button id="file_upload_btn_cancel" type="button" class="btn btn-link">Cancel</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
             </div>
             <!-- end of col 6 -->
@@ -163,29 +166,28 @@
     </div>
 
     <script id="table-cols-picker" type="text/html">
-                <div class="col-sm-1">
-                <div class=" button-group file_select_col_vis  pull-left" style="margin: 0 0 3px -10px;">
-                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> Columns <span class="caret"> </span></button>
-                    <ul class="dropdown-menu">
-                        <li><label class="small">&nbsp;<input data-value="0" type="checkbox" checked/>&nbsp;Name</label></li>
-                        <li><label class="small">&nbsp;<input data-value="1" type="checkbox" checked/>&nbsp;Type</label></li>
-                        <li><label class="small">&nbsp;<input data-value="2" type="checkbox" checked/>&nbsp;Size</label></li>
-                        <li><label class="small">&nbsp;<input data-value="3" type="checkbox" checked/>&nbsp;Added By</label></li>
-                        <li><label class="small">&nbsp;<input data-value="4" type="checkbox"/>&nbsp;Users</label></li>
-                        <li><label class="small">&nbsp;<input data-value="5" type="checkbox"/>&nbsp;Extension</label></li>
-                        <li><label class="small">&nbsp;<input data-value="6" type="checkbox"/>&nbsp;Details</label></li>
-                        <li><label class="small">&nbsp;<input data-value="7" type="checkbox"/>&nbsp;Original Name</label></li>
-                        <li><label class="small">&nbsp;<input data-value="8" type="checkbox"/>&nbsp;Options</label></li>
-                    </ul>
-                </div>
-                </div>
+        <div class="col-sm-1">
+            <div class=" button-group file_select_col_vis  pull-left" style="margin: 0 0 3px -10px;">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> Columns <span class="caret"> </span></button>
+                <ul class="dropdown-menu">
+                    <li><label class="small">&nbsp;<input data-value="0" type="checkbox" checked/>&nbsp;Name</label></li>
+                    <li><label class="small">&nbsp;<input data-value="1" type="checkbox" checked/>&nbsp;Type</label></li>
+                    <li><label class="small">&nbsp;<input data-value="2" type="checkbox" checked/>&nbsp;Size</label></li>
+                    <li><label class="small">&nbsp;<input data-value="3" type="checkbox" checked/>&nbsp;Added By</label></li>
+                    <li><label class="small">&nbsp;<input data-value="4" type="checkbox"/>&nbsp;Users</label></li>
+                    <li><label class="small">&nbsp;<input data-value="5" type="checkbox"/>&nbsp;Extension</label></li>
+                    <li><label class="small">&nbsp;<input data-value="6" type="checkbox"/>&nbsp;Details</label></li>
+                    <li><label class="small">&nbsp;<input data-value="7" type="checkbox"/>&nbsp;Original Name</label></li>
+                    <li><label class="small">&nbsp;<input data-value="8" type="checkbox"/>&nbsp;Options</label></li>
+                </ul>
+            </div>
+        </div>
     </script>
 </body>
 
 <script type="text/javascript" src="js/FileServiceClient-bootstrap.js"></script>
 
 <script>
-
     $(document).ready(function() {
         var fsClient = new FileServiceClient({
             selectMode: "single",
@@ -193,9 +195,8 @@
             rootSelector: "#universal-file-manager",
             uploadSelector: "#file-upload-container",
             selectSelector: "#file-select-container",
-            tags: ["client","theme","logo"]
+            tags: ["client", "theme", "logo"]
         });
         fsClient.show();
     });
-
 </script>

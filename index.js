@@ -17,7 +17,8 @@ app.use(bodyparser.urlencoded({ extended: true }));
  * display API info at root URL
  */
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, './public', 'bootstrap.html'));
+    // res.sendFile(path.join(__dirname, './public', 'bootstrap.html'));
+    res.sendFile(path.join(__dirname, './public', 'index.html'));
 })
 
 /**
