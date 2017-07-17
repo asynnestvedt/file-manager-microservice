@@ -7,9 +7,9 @@
             fileType: "all",
             selectMode: "single",
             uploadMode: "none",
-            rootSelector: null,
-            uploadSelector: null,
-            selectSelector: null,
+            rootSelector: "#universal-file-manager",
+            uploadSelector: "#file-upload-container",
+            selectSelector: "#file-select-container",
             tags: null,
             cb_selected: function(err, data) {},
             cb_upload_done: function(err, data) {},
@@ -52,26 +52,32 @@
 
 
     FileServiceClient.prototype._initSelect = function() {
-        var file_table = $('#file_select_table').DataTable({
-            "dom": '<"toolbar">frtip',
-            "processing": true,
-            "ajax": "/file",
-            // "aaData": file_data.data,
-            "bLengthChange": false,
-            "pagingType": "simple",
-            "columns": [
-                { "data": "name" },
-                { "data": "meta.ext" },
-                { "data": "meta.size" },
-                { "data": "meta.creator" },
-                { "data": "users", "bVisible": false },
-                { "data": "meta.ext", "bVisible": false },
-                { "data": "details", "bVisible": false },
-                { "data": "meta.original_name", "bVisible": false },
-                { "data": null, "bVisible": false }
-            ],
-            // "aoColumns": [{},{},{},{},{"bVisible": false},{"bVisible": false},{"bVisible": false},{"bVisible": false},{"bVisible": false}]
-        });
+        if (!this.filetable) {
+            this.filetable = $('#file_select_table').DataTable({
+                "dom": '<"toolbar">frtip',
+                "processing": true,
+                "ajax": "/file",
+                // "aaData": file_data.data,
+                "bLengthChange": false,
+                "pagingType": "simple",
+                "columns": [
+                    { "data": "name" },
+                    { "data": "meta.ext" },
+                    { "data": "meta.size" },
+                    { "data": "meta.creator" },
+                    { "data": "users", "bVisible": false },
+                    { "data": "meta.ext", "bVisible": false },
+                    { "data": "details", "bVisible": false },
+                    { "data": "meta.original_name", "bVisible": false },
+                    { "data": null, "bVisible": false }
+                ],
+                // "aoColumns": [{},{},{},{},{"bVisible": false},{"bVisible": false},{"bVisible": false},{"bVisible": false},{"bVisible": false}]
+            });
+        } else {
+            // repopulate data via datatables API
+            // or maybe destroy table & recreate? table.destroy();
+        }
+        
 
         $("div.toolbar").html($('#table-cols-picker').html());
 
