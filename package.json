@@ -1,24 +1,24 @@
 {
-    "name": "file-manager-microservice",
-    "version": "1.0.0",
-    "description": "universal file uploader and selector",
-    "main": "index.js",
-    "scripts": {
-        "test": "test/tests.js"
-    },
-    "author": "Alan Synnestvedt",
-    "license": "ISC",
-    "dependencies": {
-        "aws-sdk": "^2.82.0",
-        "body-parser": "^1.17.2",
-        "crypto": "0.0.3",
-        "express": "^4.15.3",
-        "express-formidable": "^1.0.0",
-        "express-static": "^1.2.4",
-        "mongodb": "^2.2.30",
-        "mongoose": "^4.11.2",
-        "multer": "^1.3.0",
-        "multer-s3": "^2.7.0",
-        "nedb": "^1.8.0"
-    }
+  "name": "file-manager-microservice",
+  "version": "1.0.0",
+  "description": "universal file uploader and selector",
+  "main": "index.js",
+  "scripts": {
+    "test": "test/tests.js"
+  },
+  "author": "Alan Synnestvedt",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.82.0",
+    "body-parser": "^1.17.2",
+    "crypto": "0.0.3",
+    "express": "^4.15.3",
+    "express-jwt": "^5.3.0",
+    "express-static": "^1.2.4",
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.2",
+    "multer": "^1.3.0",
+    "multer-s3": "^2.7.0",
+    "nedb": "^1.8.0"
+  }
 }

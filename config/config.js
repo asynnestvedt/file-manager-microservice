@@ -14,7 +14,10 @@ module.exports = {
         s3: {
             key_id: '',
             secret: '',
-            bucket: 'file-microservice-test'
+            buckets: {
+                private: 'file-microservice-test',
+                public:  'file-microservice-test-public'
+            }
         },
         local: {
             path: '/../uploads/'

@@ -6,9 +6,6 @@ let config = require('./config/config.js'),
 
 let app = express();
 
-// app.use(bodyparser.json());
-// app.use(bodyparser);
-
 app.use(express.static(path.join(__dirname, 'public/')));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));

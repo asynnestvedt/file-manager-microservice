@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Examples Demo</title>
+    <meta name="description" content="">
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <link type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+    
+</head>
+
+<body>
+    <div>
+        <h4>Upload one of any document. No selection available</h4>
+        <input id="onedoc" type="text" />
+        <hr />
+    </div>
+    <div>
+        <h4>Select one of any file or upload one of any file.</h4>
+        <input id="oneany" type="text" />
+        <hr />
+    </div>
+    <div>
+        <h4>Select one or more audio files. no upload available.</h4>
+        <input id="manyaud" type="text" />
+        <ul id="manyaudlist">
+
+        </ul>
+        <hr />
+    </div>
+
+    <script type="text/javascript" src="/js/FileServiceClientInject.js"></script>
+    <script>
+        
+        $("input").on('click',function(el){
+            var id = $(el.target).attr('id');
+            showFfmModal(id);
+        });
+
+        $(document).ready(function(){
+            new FileServiceClientInject('bootstrap');
+        });
+
+        function showFfmModal(id) {
+            console.log(ffmOpt[id]);
+            let fsc = new FileServiceClient(ffmOpt[id]);
+            fsc.show()
+        }
+
+        var ffmOpt = {
+            'onedoc': {
+                'selector': 'none',
+                'upload': 'single',
+                'types': 'document',
+                'done_cb': function(files) {
+                    $('#onedoc').val(files[0].name);
+                }
+            },
+
+            'oneany': {
+                'selector': 'single',
+                'upload': 'single',
+                'types': 'any',
+                'done_cb': function(files) {
+                    $('#oneany').val(files[0].name);
+                }
+            },
+
+            'manyaud': {
+                'selector': 'multiple',
+                'upload': 'none',
+                'types': 'audio',
+                'done_cb': function(files) {
+                    $('#oneany').val(files[0].name);
+                }
+            }
+        }
+</script>
+
+</body>

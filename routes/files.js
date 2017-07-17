@@ -1,7 +1,3 @@
-let file = require('../lib/file.model.js');
-const formidable = require('express-formidable');
-
-
 const AWS = require('aws-sdk');
 const config = require('../config/config');
 const s3 = new AWS.S3({
@@ -9,19 +5,19 @@ const s3 = new AWS.S3({
     secretAccessKey: config.storage.s3.secret,
     apiVersion: '2006-03-01'
 });
-const bucket = config.storage.s3.bucket;
+const privateBucket = config.storage.s3.buckets.private;
+const publicBucket = config.storage.s3.buckets.public;
 const multer = require('multer')
 const multerS3 = require('multer-s3')
 const File = require('../model/file');
 
 module.exports = function(app, db) {
 
-    // app.use(formidable());
 
     var upload = multer({
         storage: multerS3({
             s3: s3,
-            bucket: bucket,
+            bucket: privateBucket,
             metadata: function(req, file, cb) {
                 cb(null, { fieldName: file.fieldname });
             },
@@ -56,35 +52,10 @@ module.exports = function(app, db) {
             file.save((err) => {
                 if (err) throw (err);
                 console.log(req.files);
-                res.send('Successfully uploaded ' + req.files.length + ' files!')
+                res.status(201).send('Successfully uploaded ' + req.files.length + ' files!')
             })
 
         }, this);
-
-
-
-
-        // fs.readFile(req.files.displayImage.path, function (err, data) {
-        // // ...
-        // var newPath = __dirname + "/uploads/uploadedFileName";
-        //     fs.writeFile(newPath, data, function (err) {
-        //         res.redirect("back");
-        //     });
-        // });
-
-        // if(file.isValid()) {
-        //     db.files_write(file.unified(), function(err, filedoc) {
-        //         if (!err) {
-        //             res.status(201).send(JSON.stringify( {_id: filedoc._id} ));
-        //         } else {
-        //             res.type('text/plain');
-        //             res.status(400).send("duplicate entry");
-        //         }
-        //     });
-        // } else {
-        //     res.type('text/plain');
-        //     res.status(400).send("files require 'payload' and 'when' attributes");
-        // }
 
 
 

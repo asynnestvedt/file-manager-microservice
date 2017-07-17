@@ -1,9 +1,12 @@
 const mongoose = require('../config/db');
 
 const Schema = new mongoose.Schema({
+    hash: { type: String, index: true, required: true }, 
     name: String,
-    details: { type: String, default: '' },
+    descr: { type: String, default: '' },
     meta: {
+        mime: String, required: true,
+        ver: Number,
         size: String,
         ext: String,
         res: {
@@ -12,32 +15,16 @@ const Schema = new mongoose.Schema({
         },
         original_name: String,
         created: { type: Date, default: Date.now },
-        creator: { type: String, default: 'Alan' }
+        creator: String,
+        tags: { type: [String], index: true }
     },
-    users: [String],
-    access: [String],
-    payload: String,
-    status: Boolean,
-    archive: Boolean
+    users: {type: [String], index: true},
+    access: {type: [String], index: true},
+    status: {type: Boolean, default: false},
+    archive: {type: Boolean, default: false}
 });
 
 var File = mongoose.model('File', Schema);
 
 module.exports = File;
 
-
-
-// File.pre('set', (data, cb) => {
-
-
-//         console.log(data);
-//     })
-// var file = new File({ name: 'abcd.jpg' });
-
-// file.save(function(err) {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log('meow');
-//     }
-// });
