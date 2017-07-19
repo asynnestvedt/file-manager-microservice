@@ -15,8 +15,8 @@ module.exports = {
             key_id: '',
             secret: '',
             buckets: {
-                private: 'file-microservice-test',
-                public:  'file-microservice-test-public'
+                private: '',
+                public: ''
             }
         },
         local: {

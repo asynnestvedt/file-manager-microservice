@@ -10,6 +10,7 @@ const publicBucket = config.storage.s3.buckets.public;
 const multer = require('multer')
 const multerS3 = require('multer-s3')
 const File = require('../model/file');
+const crypto = require('crypto');
 
 module.exports = function(app, db) {
 
@@ -19,10 +20,13 @@ module.exports = function(app, db) {
             s3: s3,
             bucket: privateBucket,
             metadata: function(req, file, cb) {
+                console.log(file);
                 cb(null, { fieldName: file.fieldname });
             },
             key: function(req, file, cb) {
-                cb(null, Date.now().toString())
+                file.hash = crypto.createHash('md5').update('secret').digest('hex');
+                file.ext = file.originalname.split('.').pop();
+                cb(null, file.hash + "." + file.ext)
             }
         })
     })
@@ -38,12 +42,15 @@ module.exports = function(app, db) {
 
             file = new File({
                 name: req.body.name,
-                details: req.body.details,
+                descr: req.body.details,
+                hash: element.hash,
                 meta: {
+                    mime: element.mimetype,
                     size: element.size,
-                    ext: element.mimetype,
+                    ext: element.ext,
                     original_name: element.originalname
                 },
+                tags: ['test', 'test2'],
                 status: true
 
 
@@ -115,7 +122,7 @@ module.exports = function(app, db) {
      */
     var jwt = require('express-jwt');
     app.get('/file/secure',
-        jwt({secret: config.app.secret }),
+        jwt({ secret: config.app.secret }),
         function(req, res) {
             if (!req.user.admin) return res.sendStatus(401);
             res.sendStatus(200);

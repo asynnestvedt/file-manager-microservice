@@ -66,8 +66,8 @@
                     { "data": "meta.size" },
                     { "data": "meta.creator" },
                     { "data": "users", "bVisible": false },
-                    { "data": "meta.ext", "bVisible": false },
-                    { "data": "details", "bVisible": false },
+                    { "data": "meta.mime", "bVisible": false },
+                    { "data": "descr", "bVisible": false },
                     { "data": "meta.original_name", "bVisible": false },
                     { "data": null, "bVisible": false }
                 ],
@@ -77,7 +77,7 @@
             // repopulate data via datatables API
             // or maybe destroy table & recreate? table.destroy();
         }
-        
+
 
         $("div.toolbar").html($('#table-cols-picker').html());
 
@@ -98,7 +98,7 @@
 
     FileServiceClient.prototype._initUpload = function() {
 
-        console.log('UPLOAD');
+
         if (this.show_users == true) {
 
         } else {
